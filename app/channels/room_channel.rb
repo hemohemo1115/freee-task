@@ -9,6 +9,7 @@ class RoomChannel < ApplicationCable::Channel
 
   def speak(data)
     # jsで実行されたspeakのmessageを受け取り、room_channelのreceivedにブロードキャストする,ブロードキャストとは同じネットワーク内にいる全員に同じデータを送ること
-    ActionCable.server.broadcast 'room_channel', message: data['message']
+    #ActionCable.server.broadcast 'room_channel', message: data['message']
+    Message.create! content: data['message']
   end
 end
