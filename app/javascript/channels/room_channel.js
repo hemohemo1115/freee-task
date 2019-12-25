@@ -12,11 +12,15 @@ const chatChannel = consumer.subscriptions.create("RoomChannel", {
   // room_channel.rbでブロードキャストされたものがここに届く
   received: function(data) {
     // Called when there's incoming data on the websocket for this channel
-    return alert(data['message']);
+    //console.log(data);
+    //alert("hoge")
+    return $('#messages').append(data['message']);
   },
 
   // これが実行されるとコンシューマになったRoomChannel#speak({ message: message })が呼ばれる
   speak: function(message) {
+    
+    //console.log(message);
     return this.perform('speak', {
       message: message
     });
