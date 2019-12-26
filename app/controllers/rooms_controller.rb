@@ -5,7 +5,7 @@ class RoomsController < ApplicationController
   end
   
   def show
-    @room = Room.find(params[:id])
-    @messages = @room.messages
+    # メッセージ一覧を取得
+    @messages = Message.all
   end
 end
