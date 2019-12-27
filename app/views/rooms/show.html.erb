@@ -1,8 +1,15 @@
 <%#                ここの data-room_id を使ってjs側で部屋を見分ける %>
 
-<div id='messages'>
+<div id='messages' data-room_id="<%= @room.id %>">
   <%= render @messages %>
 </div>
+<%#<div id='messages'>
+  <%= render @messages %>
+<%#</div>%>
 
+<div>
 <%= label_tag :content, 'Say something:' %>
 <%= text_field_tag :content, nil, data: { behavior: 'room_speaker' } %>
+</div>
+
+<%= link_to "ROOM一覧へ", root_path %>

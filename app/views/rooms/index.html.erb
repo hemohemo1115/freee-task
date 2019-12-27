@@ -1,7 +1,10 @@
+ようこそ<% user.email %>
+
 <div>
   <ul>
     <% @rooms.each do |room| %>
       <li><%= link_to "ROOM#{room.id}", room_path(room) %></li>
     <% end %>
   </ul>
+  <%= link_to "ROOM新規作成", create_path %>
 </div>
