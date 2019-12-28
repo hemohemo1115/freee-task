@@ -7,7 +7,8 @@
 
 <% end %>
 <%# jsにcurrent_userのデータを渡している %>
-<input name="current_user" type="hidden" value="<%= @current_user %>" class="current_user">
+<input name="current_user" type="hidden" value="<%= @current_user.id %>" class="current_user">
+<input name="room_number" type="hidden" value="<%= @room.id %>" class="room_number">
 <%#<div id='messages'>
   <%= render @messages %>
 <%#</div>%>

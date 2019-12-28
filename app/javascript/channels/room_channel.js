@@ -16,10 +16,12 @@ $(function() {
 
     speak: function(message) {
       const current_user = $('.current_user').val();
-      alert(current_user);
+      const room_number = $('.room_number').val();
+      //alert(current_user);
       return this.perform('speak', {
         message: message,
-        current_user: current_user
+        current_user: current_user,
+        room_number: room_number
       });
     }
   });
