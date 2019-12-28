@@ -15,8 +15,11 @@ $(function() {
     },
 
     speak: function(message) {
+      const current_user = $('.current_user').val();
+      alert(current_user);
       return this.perform('speak', {
-        message: message
+        message: message,
+        current_user: current_user
       });
     }
   });

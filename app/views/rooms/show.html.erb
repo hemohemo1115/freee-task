@@ -1,12 +1,17 @@
 <%#                ここの data-room_id を使ってjs側で部屋を見分ける %>
-
+<% if user_signed_in? %>
 <div id='messages' data-room_id="<%= @room.id %>">
   <%= render @messages %>
 </div>
+<%= @current_user.email %>
+
+<% end %>
+<%# jsにcurrent_userのデータを渡している %>
+<input name="current_user" type="hidden" value="<%= @current_user %>" class="current_user">
 <%#<div id='messages'>
   <%= render @messages %>
 <%#</div>%>
-
+<%= @room.id %>
 <div>
 <%= label_tag :content, 'Say something:' %>
 <%= text_field_tag :content, nil, data: { behavior: 'room_speaker' } %>

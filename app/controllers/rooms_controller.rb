@@ -1,7 +1,10 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!
+
   # ついでにRoom一覧を表示させるアクションも追加しておく
   def index
     @rooms = Room.all.order(:id)
+    @current_user = current_user
   end
   
   def show
@@ -10,6 +13,7 @@ class RoomsController < ApplicationController
     #room別用
     @room = Room.find(params[:id])
     @messages = @room.messages
+    @current_user = current_user
   end
 
   def create
@@ -19,4 +23,9 @@ class RoomsController < ApplicationController
     redirect_to root_path
   end
   
+  #def current_user
+  #  current_user
+  #end
+  
+
 end
