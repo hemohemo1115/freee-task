@@ -20,7 +20,7 @@ class RoomChannel < ApplicationCable::Channel
     #メッセージを保存する際にuser情報などと紐づけ
     #Message.create! content: data['message'], user_id: current_user.id, room_id: params['room']
     puts "ooooooooooooo"
-    Message.create! content: data['message'], user_id: data['current_user'], room_id: data['room_number']
-    #Message.create! content: data['message'], room_id: params['room']
+    #Message.create! content: data['message'], user_id: data['current_user'], room_id: data['room_number']
+    Message.create! content: data['message'], user_id: data['current_user'], room_id: params['room']
   end
 end
